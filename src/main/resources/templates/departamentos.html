@@ -54,7 +54,7 @@
     </label>
     <div class="sidebar">
         <header>Menu</header>
-        <a href="/painel" class="active">
+        <a href="/painel">
             <i class="fas fa-tools"></i>
             <span>Painel</span>
         </a>
@@ -62,7 +62,7 @@
             <i class="fas fa-users"></i>
             <span>Funcionários</span>
         </a>
-        <a th:href="@{/lista/departamentos/0}">
+        <a th:href="@{/lista/departamentos/0}"  class="active">
             <i class="far fa-building"></i>
             <span>Departamentos</span>
         </a>
@@ -76,8 +76,8 @@
     </div>
 
     <main>
-        <div class="container py-5">
-            <h4 class="pb-5">Departamentos</h4>
+        <div id="containerDepartamento" class="container py-5">
+       
 
 
             <!-- Modal -->
@@ -151,7 +151,7 @@
                         <td id="actionButtons">
                             <a th:href="@{'/lista/editarDepartamento/' + ${departamento.id}}"
                               ><i class="fas fa-edit fa-2x" ></i></a>
-                            <a href="" data-bs-toggle="modal" data-bs-target="#myModal" id="buttonDelete"
+                            <a th:href="@{'/delete/departamento/' + ${departamento.id}}" data-bs-toggle="modal" data-bs-target="#myModal" id="buttonDelete"
                                ><i class="fas fa-trash fa-2x ms-3" style="color: red;"></i></a>
                             <div class="modal fade" id="myModal">
                                 <div class="modal-dialog">
@@ -227,7 +227,7 @@
                             </td>
 
                             <td>
-                                <a href="" data-bs-toggle="modal" data-bs-target="#myModal" id="buttonDelete"
+                                <a th:href="@{'/delete/departamento/' + ${departamento.id}}" data-bs-toggle="modal" data-bs-target="#myModal" id="buttonDelete"
                                 ><i class="fas fa-trash fa-2x ms-3" style="color: red;"></i></a>
 
                                 <div class="modal" id="modal" tabindex="-1">
@@ -261,7 +261,7 @@
 
                 <nav id="pagination-responsible" class="pagination" aria-label="Page navigation example">
                     <ul class="pagination">
-                      <li  th:if="${currentPage+1 != 0}" class="page-item"><a th:href="@{'/lista/departamentos/'+${currentPage-1}}" class="page-link" href="#">Previous</a></li>
+                      <li  th:if="${currentPage != 0}" class="page-item"><a th:href="@{'/lista/departamentos/'+${currentPage-1}}" class="page-link" href="#">Previous</a></li>
                     
                       <li th:classappend="${currentPage==i-1?'active' : ''}" th:each="i : ${#numbers.sequence(1,totalPages)}" class="page-item"><a th:href="@{'/lista/departamentos/'+${i-1}}" class="page-link"><span th:text="${i}"></span></a></li>
                      

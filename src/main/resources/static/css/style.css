@@ -181,7 +181,7 @@ label #cancel{
 
 .container{
 
-  padding-left: 40px; 
+
   
   margin: 0% auto;
 }
@@ -400,7 +400,7 @@ display: none;
   }
 
   .container{
-    padding-left: 100px;
+    padding-left: 50px;
   }
 
   .table.table-hover{
@@ -487,13 +487,53 @@ display: none;
 
 
 /* // Medium devices (tablets, less than 992px) */
-@media (max-width: 991.98px) { 
-  .table.table-hover{
-   display: none;
+@media (min-width: 991.98px) { 
+ 
+  #botaoAdd{
+    
   }
 
-  #botaoAdd{
-    display: none;
+  .container{
+    padding-left: 100px;
+  }
+
+  .sidebar{
+    position: fixed;
+    width: 210px;
+    left: -210px;
+    height: 100%;
+    background:#262626;
+    transition: all .5s ease;
+  }
+  .sidebar header{
+    font-size: 26px;
+    color: white;
+    line-height: 70px;
+    text-align: center;
+    background: #1b1b1b;
+    user-select: none;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+ 
+
+    
+ 
+
+  .sidebar a i{
+    margin-left: -10px;
+    font-size: 17px;
+  }
+
+  #check:checked ~ label #btn{
+    margin-left: 220px;
+    opacity: 0;
+    visibility: hidden;
+  }
+  #check:checked ~ label #cancel{
+    margin-left: 220px;
+    opacity: 1;
+    visibility: visible;
   }
 
   
@@ -501,9 +541,11 @@ display: none;
 
 /* // Large devices (desktops, less than 1200px) */
 @media (min-width: 1199.98px) { 
+
   .table-responsive-sm{
-    display: none;
+  display: none;
   }
+  
   #botaoAdd-sm{
     display: none;
   }
@@ -522,11 +564,53 @@ display: none;
    
   }
 
+  .sidebar a i{
+    margin-left: -10px;
+    font-size: 17px;
+  }
+
+  #check:checked ~ label #btn{
+    margin-left: 220px;
+    opacity: 0;
+    visibility: hidden;
+  }
+  #check:checked ~ label #cancel{
+    margin-left: 220px;
+    opacity: 1;
+    visibility: visible;
+  }
+
+   .container{
+
+    padding-left: 0px; 
+    
+    margin: 0% auto;
+  } 
+
+  #containerFuncionario{
+padding-left: 110px;
+margin: 0% auto;
+  }
+
+ 
+
+  #containerDepartamento{
+padding-left: 110px;
+margin: 0% auto;
+  }
+
+ 
+    
+
+
+
+
 
  }
 
 /* // X-Large devices (large desktops, less than 1400px) */
 @media (min-width: 1399.98px) {  
+
   .table-responsive-sm{
     display: none;
 
@@ -534,4 +618,51 @@ display: none;
   #botaoAdd-sm{
     display: none;
   }
+
+  .sidebar{
+    position: fixed;
+    width: 240px;
+    left: -240px;
+    height: 100%;
+    background:#262626;
+    transition: all .5s ease;
+  }
+  .sidebar header{
+    font-size: 28px;
+    color: white;
+    line-height: 70px;
+    text-align: center;
+    background: #1b1b1b;
+    user-select: none;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  #check:checked ~ label #btn{
+    margin-left: 245px;
+    opacity: 0;
+    visibility: hidden;
+  }
+  #check:checked ~ label #cancel{
+    margin-left: 245px;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .container{
+
+      
+    
+    margin-left: 200px auto;
+  }
+
+  .sidebar a i{
+    margin-left: -10px;
+    font-size: 23px;
+  }
+
+ 
+
+
+  
+
 }

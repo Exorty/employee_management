@@ -54,11 +54,11 @@
   </label>
   <div class="sidebar">
     <header>Menu</header>
-    <a href="/painel" class="active">
+    <a href="/painel">
       <i class="fas fa-tools"></i>
       <span>Painel</span>
     </a>
-    <a th:href="@{/lista/funcionarios/0}">
+    <a th:href="@{/lista/funcionarios/0}" class="active">
       <i class="fas fa-users"></i>
       <span>Funcionários</span>
     </a>
@@ -75,7 +75,7 @@
 
   </div>
   <main>
-    <div class="container py-5">
+    <div id="containerFuncionario" class="container py-5">
      
 
 
@@ -179,8 +179,8 @@
             <td th:text="${funcionario.telefone}"></td>
             <td id="actionButtons">
               <a th:href="@{'/lista/editarFuncionario/' + ${funcionario.id}}"><i class="fas fa-edit fa-2x"></i></a>
-              <a href="" data-bs-toggle="modal" data-bs-target="#myModal" id="buttonDelete"><i
-                  class="fas fa-trash fa-2x ms-3" style="color: red;"></i></a>
+              <a th:href="@{'/delete/funcionario/' + ${funcionario.id}}" data-bs-toggle="modal" data-bs-target="#myModal" id="buttonDelete"
+              ><i class="fas fa-trash fa-2x ms-3" style="color: red;"></i></a>
               <div class="modal fade" id="myModal">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -239,7 +239,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr th:each="funcionario: ${funcionarios}">
+            <tr th:each="funcionario: ${funcionariosPage}">
               <td th:text="${funcionario.id}"></td>
               <td th:text="${funcionario.email}"></td>
               <td th:text="${funcionario.nome}"></td>
@@ -254,8 +254,8 @@
 
 
               <td>
-                <a href="" data-bs-toggle="modal" data-bs-target="#myModal" id="buttonDelete"><i
-                  class="fas fa-trash fa-2x ms-3" style="color: red;"></i></a>
+                <a th:href="@{'/delete/funcionario/' + ${funcionario.id}}" data-bs-toggle="modal" data-bs-target="#myModal" id="buttonDelete"
+                               ><i class="fas fa-trash fa-2x ms-3" style="color: red;"></i></a>
 
                 <div class="modal" id="modal" tabindex="-1">
                   <div class="modal-dialog">
