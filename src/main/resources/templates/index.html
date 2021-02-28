@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en"  xmlns:th="http://thymeleaf.org">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <script src="https://kit.fontawesome.com/3272149d37.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet"th:href="@{/css/style.css}">
+<!--   <link rel="stylesheet" th:href="@{/css/styleLoginAndRegistration.css}"> -->
+  
+
+
+  <title>Gerenciamento</title>
+
+
+
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-expand-lg " style="background-color: #262626;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/painel" style="margin-left: 15px;">Gerenciador de funcionários</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav ms-auto mb-1 mb-lg-0" style="margin-right: 15px;">
+          <li class="nav-item" >
+               <a class="nav-link"  aria-current="page" th:href="@{/logout}" ><i class="fas fa-sign-out-alt fa-2x" style="color: red;"></i></a> 
+            </div>
+          
+           
+         
+           
+          </li>
+        
+         
+        </ul>
+      
+      </div>
+    </div>
+  </nav>
+    
+ 
+
+
+  <input type="checkbox" id="check">
+  <label for="check">
+    <i class="fas fa-bars" id="btn"></i>
+    <i class="fas fa-times" id="cancel"></i>
+  </label>
+  <div class="sidebar">
+    <header>Menu</header>
+    <a href="/painel" class="active">
+      <i class="fas fa-tools"></i>
+      <span>Painel</span>
+    </a>
+    <a th:href="@{/lista/funcionarios/0}">
+      <i class="fas fa-users"></i>
+      <span>Funcionários</span>
+    </a>
+    <a th:href="@{/lista/departamentos/0}">
+      <i class="far fa-building"></i>
+      <span>Departamentos</span>
+    </a>
+
+    <a href="/sobre">
+      <i class="far fa-question-circle"></i>
+      <span style="margin-top: 50px;">Sobre</span>
+    </a>
+
+   
+  </div>
+
+  <main>
+    <div class="container py-5">
+      <h4 class="pb-3">Painel</h4>
+
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col-lg-4">
+          <a th:href="@{/lista/funcionarios/0}">
+            <div class="card h-100">
+              <img src="../images/funcionarios.jpg" class="card-img-top h-90" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Funcionários</h5>
+                <p class="card-text">Lista de funcionários</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4">
+          <a th:href="@{/lista/departamentos/0}">
+            <div class="card h-100">
+              <img src="../images/predios.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Departamentos</h5>
+                <p class="card-text">Lista de departamentos.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-lg-4">
+          <a href="/sobre">
+            <div class="card h-100">
+              <img src="../images/about.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">Sobre</h5>
+                <p class="card-text">Informações e contato.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+  </main>
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+
+
+
+</body>
+
+</html>

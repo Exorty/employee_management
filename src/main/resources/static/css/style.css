@@ -1,0 +1,537 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none !important;
+  
+}
+
+body{
+  font-family:'Open Sans';
+ 
+}
+
+.navbar a{
+  color: white;
+}
+
+
+
+.sidebar{
+  position: fixed;
+  width: 240px;
+  left: -240px;
+  height: 100%;
+  background:#262626;
+  transition: all .5s ease;
+}
+.sidebar header{
+  font-size: 28px;
+  color: white;
+  line-height: 70px;
+  text-align: center;
+  background: #1b1b1b;
+  user-select: none;
+  font-family: 'Montserrat', sans-serif;
+}
+.sidebar a{
+  display: block;
+  height: 65px;
+  width: 100%;
+  color: white;
+  line-height: 65px;
+  padding-left: 30px;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  transition: all 0.3s ease;
+  
+}
+
+
+.sidebar a.active, .sidebar a:hover{
+  border-left: 6px solid #224fb9;
+  color: #224fb9;
+}
+.sidebar a i{
+  font-size: 23px;
+  margin-right: 16px;
+}
+.sidebar a span{
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+#check{
+  display: none;
+}
+
+label #btn,label #cancel{
+  position: absolute;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #262626;
+  margin: 15px 30px;
+  font-size: 29px;
+  background: #262626;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  line-height: 45px;
+  transition: all .5s ease;
+}
+label #cancel{
+  opacity: 0;
+  visibility: hidden;
+}
+#check:checked ~ .sidebar{
+  left: 0;
+}
+#check:checked ~ label #btn{
+  margin-left: 245px;
+  opacity: 0;
+  visibility: hidden;
+}
+#check:checked ~ label #cancel{
+  margin-left: 245px;
+  opacity: 1;
+  visibility: visible;
+}
+
+#actions{
+  text-align: center;
+}
+
+#buttonEdit{
+  width: 100px;
+ margin-right: 15px;
+ text-align: center;
+}
+
+#buttonDelete{
+  width: 100px;
+ 
+}
+
+#actionButtons{
+  text-align: center;
+}
+
+
+.pagination > li > a
+{
+    background-color: white;
+    color: #262626;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: white;
+    background-color: #224fb9;
+    border-color: #224fb9;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #224fb9 !important;
+    border: solid 1px #224fb9 !important;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: #224fb9 !important;
+    border: solid 1px #224fb9;
+}
+
+@media(max-width : 860px){
+  .sidebar{
+    height: auto;
+    width: 70px;
+    left: 0;
+    margin: 100px 0;
+  }
+  header,#btn,#cancel{
+    display: none;
+  }
+  span{
+    position: absolute;
+    margin-left: 23px;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .sidebar a{
+    height: 60px;
+  }
+  .sidebar a i{
+    margin-left: -10px;
+    font-size: 22px;
+  }
+  a:hover {
+    width: 200px;
+    background: inherit;
+  }
+  .sidebar a:hover span{
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.container{
+
+  padding-left: 40px; 
+  
+  margin: 0% auto;
+}
+
+.container h4{
+    text-align: center;
+}
+
+#botaoAdd{
+  margin-left: 92%;
+  margin-bottom: 5px;
+  color:#09d435;
+}
+#botaoAdd:hover{
+
+  color:#fff;
+}
+
+.pagination{
+  padding-top:0px;
+ 
+}
+
+
+.pagination-responsible{
+  padding-top:0px;
+}
+
+
+.actionButtonsEdit{
+
+  text-align: center;
+  
+}
+
+#botaoCancelar{
+ 
+  margin-right: 20px;
+  width: 100px;
+  height: 45px;
+  padding-top: 10px;
+ 
+}
+
+#botaoSalvar{
+  text-align: center;
+  width: 100px;
+  height: 45px;
+ 
+}
+
+.card{
+
+  
+color: black;
+text-align: center;
+margin: 7px;
+}
+
+
+
+
+.card-img-top{
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+.card:hover{
+  transform: scale(1.1);
+  color: #224fb9;
+  box-shadow: -1px 5px 20px -12px #262626;
+
+  
+}
+
+.table.table-hover{
+    border-radius:1px;
+   box-shadow:  2px 0px 1px -1px #262626,  -2px 0px 1px -1px #262626;
+   
+
+
+
+ 
+
+
+ }
+
+ .table-title {        
+  padding-bottom: 15px;
+     background: linear-gradient(40deg,#0f2a68,#262626) !important;
+  color: #fff;
+  padding: 16px 30px;
+  margin: -20px 0px 0px;
+  border-radius: 0.5px 0.5px 0 0;
+  box-shadow: 0px 1px 1px #262626,  -1px 1px 0px 0px #262626;
+  margin-top: 50px;
+  
+    }
+
+
+
+    .table-title h2 {
+      margin: 5px 0 0;
+      font-size: 24px;
+     }
+
+     .table-title .btn-group {
+      float: right;
+     }
+
+
+     .row{
+      padding-left:50px;
+      font-size: 22px;
+    
+    }
+  
+  
+   .col-lg-5{
+  
+    border-top-left-radius: 30px; 
+    border-bottom-left-radius: 30px;
+   
+
+  
+  
+  }
+
+  .col-lg-4{
+    border-top-right-radius: 30px; 
+    border-bottom-right-radius: 30px;
+
+      
+  }
+
+  #linkedin {
+padding-left: 30%;
+
+  }
+
+  #linkedin:hover{
+    color: #0f2a68;
+  }
+
+  
+/* // X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+  .card{
+
+    
+    color: #224fb9;
+    box-shadow: -1px 5px 20px -12px #262626;
+    
+  }
+
+  .card:hover{
+
+    transform: scale(1.0);
+    color:  #224fb9;
+    box-shadow: -1px 5px 20px -12px #262626;
+    
+  }
+
+  .container{
+    padding-left: 100px;
+  }
+
+.row{
+  padding-left:50px;
+  font-size: 20px;
+}
+
+.col-lg-5{
+  border-top-right-radius: 30px; 
+  border-bottom-left-radius: 0px; 
+  
+
+
+}
+
+.col-lg-4{
+  border-top-right-radius: 0px; 
+  border-bottom-left-radius: 30px; 
+
+
+}
+#pagination{
+display: none;
+
+}
+
+
+
+    
+ }
+
+/* // Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) { 
+  .card{
+
+    
+    color:  #224fb9;
+    box-shadow: -1px 5px 20px -12px #262626;
+    
+  }
+
+  .card:hover{
+
+    transform: scale(1.0);
+    color:  #224fb9;
+    box-shadow: -1px 5px 20px -12px #262626;
+    
+  }
+
+  .container{
+    padding-left: 100px;
+  }
+
+  .table.table-hover{
+   display: none;
+  }
+
+  .table-responsive-sm{
+    padding-top: 0px;
+    border-radius:1px;
+    box-shadow:  1px 0px 1px -1px #262626,  -2px 0px 1px -1px #262626;
+ 
+  }
+
+  #botaoAdd{
+    display: none;
+  }
+
+  #botaoAdd-sm{
+    margin-left: 70px;
+    padding-top: 50px;
+    color:#09d435;
+  }
+
+  #actionButtons-responsive{
+    text-align: center;
+  
+
+  }
+
+  #botaoCancelar{
+ 
+    margin-right: 20px;
+    width: 100px;
+    height: 45px;
+    padding-top: 5px;
+   
+  }
+  
+  #botaoSalvar{
+    text-align: center;
+    width: 100px;
+    height: 45px;
+   
+  }
+
+  #botaoCancelarDepartamento{
+    margin-top: 40px;
+    margin-right: 20px;
+    width: 100px;
+    height: 45px;
+    padding-top: 10px;
+  }
+
+  #botaoSalvarDepartamento{
+    margin-top: 40px;
+    text-align: center;
+    width: 100px;
+    height: 45px;
+   
+  }
+
+  .btn1{
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.btn1:hover{
+   
+    border: 1px solid;
+    color: black;
+}
+
+
+
+
+
+
+ }
+
+
+
+/* // Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) { 
+  .table.table-hover{
+   display: none;
+  }
+
+  #botaoAdd{
+    display: none;
+  }
+
+  
+ }
+
+/* // Large devices (desktops, less than 1200px) */
+@media (min-width: 1199.98px) { 
+  .table-responsive-sm{
+    display: none;
+  }
+  #botaoAdd-sm{
+    display: none;
+  }
+
+  #botaoCancelarDepartamento{
+    margin-right: 20px;
+    width: 100px;
+    height: 45px;
+    padding-top: 10px;
+  }
+
+  #botaoSalvarDepartamento{
+    text-align: center;
+    width: 100px;
+    height: 45px;
+   
+  }
+
+
+ }
+
+/* // X-Large devices (large desktops, less than 1400px) */
+@media (min-width: 1399.98px) {  
+  .table-responsive-sm{
+    display: none;
+
+  }
+  #botaoAdd-sm{
+    display: none;
+  }
+}

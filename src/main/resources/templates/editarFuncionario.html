@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <script src="https://kit.fontawesome.com/3272149d37.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet"  th:href="@{/css/style.css}" >
+
+ 
+  <title>Funcionários</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/painel" style="margin-left: 15px;">Gerenciador de funcionários</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav ms-auto mb-1 mb-lg-0" style="margin-right: 15px;">
+          <li class="nav-item" >
+               <a class="nav-link"  aria-current="page" th:href="@{/logout}" ><i class="fas fa-sign-out-alt fa-2x" style="color: red;"></i></a> 
+            </div>
+          
+           
+         
+           
+          </li>
+        
+         
+        </ul>
+      
+      </div>
+    </div>
+  </nav>
+
+
+  <input type="checkbox" id="check">
+  <label for="check">
+    <i class="fas fa-bars" id="btn"></i>
+    <i class="fas fa-times" id="cancel"></i>
+  </label>
+  <div class="sidebar">
+    <header>Menu</header>
+    <a href="/painel" class="active">
+      <i class="fas fa-tools"></i>
+      <span>Painel</span>
+    </a>
+    <a th:href="@{/lista/funcionarios/0}">
+      <i class="fas fa-users"></i>
+      <span>Funcionários</span>
+    </a>
+    <a th:href="@{/lista/departamentos/0}">
+      <i class="far fa-building"></i>
+      <span>Departamentos</span>
+    </a>
+
+    <a href="/sobre">
+      <i class="far fa-question-circle"></i>
+      <span style="margin-top: 50px;">Sobre</span>
+    </a>
+
+    
+  </div>
+
+
+ 
+
+<div class="container p-5">
+<div class="row">
+
+  <div class="col-lg-7 pt-4 ps-5">
+ 
+    <form method="post" th:action="@{/lista/editarFuncionario}" th:object="${funcionario}">
+      <div class="mb-3">
+        <div class="mb-3">
+
+          <label class="form-label">Nome</label>
+          <input type="text" class="form-control" id="nome" th:field="*{nome}">
+          <div class="alert alert-danger mt-1" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
+        </div>
+
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" th:field="*{email}">
+        <div class="alert alert-danger mt-1" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Sobrenome</label>
+        <input type="text" class="form-control" id="sobrenome" th:field="*{sobrenome}">
+        <div class="alert alert-danger mt-1" th:if="${#fields.hasErrors('sobrenome')}" th:errors="*{sobrenome}"></div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Telefone</label>
+        <input type="text" class="form-control" id="telefone" th:field="*{telefone}">
+        <div class="alert alert-danger mt-1" th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></div>
+      </div>
+
+      <div class="input-group mb-3">
+        <label class="input-group-text">Departamento</label>
+        <select th:field="*{departamento}" class="form-select" id="departamento">
+          <option th:each="d : ${departamentos}" th:value="${d.id}" th:text="${d.nome}"></option>
+          <div class="alert alert-danger mt-1" th:if="${#fields.hasErrors('departamento')}" th:errors="*{departamento}"></div>
+        </select>
+      </div>
+
+      <input type="hidden" id="id" th:field="*{id}">
+      <div class="actionButtonsEdit py-4">
+        <a id="botaoCancelar" th:href="@{'/lista/funcionarios/'+${id}}" class="btn btn-secondary badge-pill">Cancelar</a>
+        <button   id="botaoSalvar" type="submit" class="btn btn-primary">Salvar</button>
+      </div>
+      
+      </form>
+  </div>
+ 
+   
+ 
+</div>
+ 
+</div>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+  crossorigin="anonymous"></script>
+
+</body>
+
+</html>
