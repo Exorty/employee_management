@@ -489,9 +489,6 @@ display: none;
 /* // Medium devices (tablets, less than 992px) */
 @media (min-width: 991.98px) { 
  
-  #botaoAdd{
-    
-  }
 
   .container{
     padding-left: 100px;
@@ -650,7 +647,7 @@ margin: 0% auto;
   
   .container{
 
-      
+
     
     margin-left: 200px auto;
   }
