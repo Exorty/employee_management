@@ -354,12 +354,14 @@ padding-left: 30%;
 
 .row{
   padding-left:50px;
+ 
   font-size: 20px;
 }
 
 .col-lg-5{
   border-top-right-radius: 30px; 
   border-bottom-left-radius: 0px; 
+
   
 
 
@@ -368,13 +370,26 @@ padding-left: 30%;
 .col-lg-4{
   border-top-right-radius: 0px; 
   border-bottom-left-radius: 30px; 
-
-
 }
+
 #pagination{
 display: none;
 
 }
+
+#containerFuncionario{
+  padding-left: 74px;
+  margin: 0% auto;
+    }
+  
+   
+  
+    #containerDepartamento{
+      padding-left: 74px;
+     margin: 0% auto;
+      }
+  
+   
 
 
 
@@ -429,6 +444,10 @@ display: none;
   
 
   }
+
+
+
+  
 
   #botaoCancelar{
  
@@ -496,12 +515,13 @@ display: none;
 
   .sidebar{
     position: fixed;
-    width: 210px;
-    left: -210px;
+    width: 203px;
+    left: -203px;
     height: 100%;
     background:#262626;
     transition: all .5s ease;
   }
+  
   .sidebar header{
     font-size: 26px;
     color: white;
@@ -533,6 +553,14 @@ display: none;
     visibility: visible;
   }
 
+     .container{
+
+    padding-left: 100px; 
+    
+    margin: 0% auto;
+  } 
+
+ 
   
  }
 
@@ -567,19 +595,19 @@ display: none;
   }
 
   #check:checked ~ label #btn{
-    margin-left: 220px;
+    margin-left: 205px;
     opacity: 0;
     visibility: hidden;
   }
   #check:checked ~ label #cancel{
-    margin-left: 220px;
+    margin-left: 204px;
     opacity: 1;
     visibility: visible;
   }
 
    .container{
 
-    padding-left: 0px; 
+    padding-left: 100px; 
     
     margin: 0% auto;
   } 
@@ -657,7 +685,7 @@ margin: 0% auto;
     font-size: 23px;
   }
 
- 
+
 
 
   

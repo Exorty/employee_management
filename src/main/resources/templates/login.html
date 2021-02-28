@@ -13,6 +13,7 @@
     <link rel="stylesheet" th:href="@{/css/styleLoginAndRegistration.css}">
 
     <title>Login</title>
+    <link rel="icon" type="image/ico" href="/images/favicon.ico" />
 </head>
 
 <body class="login_body">
@@ -32,6 +33,7 @@
                 <h3 class="font-weight-bold pt-4">Entre na sua conta</h3>
                 <form th:action="@{/login}" method="POST"  th:object="${appUser}">
                     <div class="form-row">
+                        
                         <div class="col-lg-7">
                             <input class="form-control mt-4 p-4" type="text" id="username" name="username"  placeholder="Usuário">
                           

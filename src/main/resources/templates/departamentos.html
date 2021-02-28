@@ -16,6 +16,7 @@
 
 
     <title>Departamentos</title>
+    <link rel="icon" type="image/ico" href="/images/favicon.ico" />
 </head>
 
 <body>
@@ -145,49 +146,40 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="departamento: ${departamentosPage}">
+                    <tr th:each="departamento: ${departamentosPage}"  tabindex="-1">
                         <td th:text="${departamento.id}">
                         <td th:text="${departamento.nome}">
                         <td id="actionButtons">
                             <a th:href="@{'/lista/editarDepartamento/' + ${departamento.id}}"
                               ><i class="fas fa-edit fa-2x" ></i></a>
-                            <a th:href="@{'/delete/departamento/' + ${departamento.id}}" data-bs-toggle="modal" data-bs-target="#myModal" id="buttonDelete"
+                            <a th:attr="data-bs-target='#myModal'+${departamento.id}" href="" data-target="#myModal"  data-bs-toggle="modal" id="buttonDelete"
                                ><i class="fas fa-trash fa-2x ms-3" style="color: red;"></i></a>
-                            <div class="modal fade" id="myModal">
+
+                               <div class="modal" th:id="myModal+${departamento.id}">
                                 <div class="modal-dialog">
-                                    <div class="modal-content">
-
-                                        <!-- Modal Header -->
-                                        <div class="modal-header">
-                                            <h3 class="modal-title">Confirmação</h3>
-
-                                        </div>
-
-                                        <div class="modal-body">
-                                            <h5>Tem certeza que deseja excluir o departamento? Todos os funcionários
-                                                contidos nele também serão excluídos</h5>
-                                        </div>
-
-
-                                        <!-- Modal footer -->
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Voltar</button>
-                                            <a class="btn btn-success"
-                                                th:href="@{'/departamento/delete/' + ${departamento.id}}">Excluir</a>
-                                        </div>
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title">Confirmação</h3>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
+                                    <div class="modal-body">
+                                        <h5>Tem certeza que deseja excluir o departamento? Todos os funcionários
+                                            contidos nele também serão excluídos</h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                      <a class="btn btn-success"
+                                      th:href="@{'/departamento/delete/' + ${departamento.id}}">Excluir</a>
+                                    </div>
+                                  </div>
                                 </div>
-                            </div>
+                              </div>
 
                         </td>
 
-
-
                     </tr>
-                  
+               
                 </tbody>
-
              
             </table>
 
@@ -227,30 +219,28 @@
                             </td>
 
                             <td>
-                                <a th:href="@{'/delete/departamento/' + ${departamento.id}}" data-bs-toggle="modal" data-bs-target="#myModal" id="buttonDelete"
-                                ><i class="fas fa-trash fa-2x ms-3" style="color: red;"></i></a>
+                                <a th:attr="data-bs-target='#myModald'+${departamento.id}" href="" data-target="#myModald"  data-bs-toggle="modal" id="buttonDelete"
+                               ><i class="fas fa-trash fa-2x ms-3" style="color: red;"></i></a>
 
-                                <div class="modal" id="modal" tabindex="-1">
+                                <div class="modal" th:id="myModald+${departamento.id}" tabindex="-1">
                                     <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h3 class="modal-title">Confirmação</h3>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <h5>Tem certeza que deseja excluir o departamento? Todos os funcionários
-                                                    contidos nele também serão excluídos</h5>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <a class="btn btn-success"
-                                                    th:href="@{'/departamento/delete/' + ${departamento.id}}">Excluir</a>
-                                            </div>
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="modal-title">Confirmação</h3>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
+                                        <div class="modal-body">
+                                            <h5>Tem certeza que deseja excluir o departamento? Todos os funcionários
+                                                contidos nele também serão excluídos</h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                          <a class="btn btn-success"
+                                          th:href="@{'/departamento/delete/' + ${departamento.id}}">Excluir</a>
+                                        </div>
+                                      </div>
                                     </div>
-                                </div>
+                                  </div>
 
 
                             </td>
