@@ -349,11 +349,18 @@ padding-left: 30%;
   }
 
   .container{
-    padding-left: 100px;
+    margin: 0 auto;
+   
   }
 
 .row{
-  padding-left:50px;
+ 
+ 
+   
+    margin:20px;
+    padding-left: 60px;
+
+
  
   font-size: 20px;
 }
@@ -378,6 +385,7 @@ display: none;
 }
 
 #containerFuncionario{
+
   padding-left: 74px;
   margin: 0% auto;
     }
@@ -415,7 +423,7 @@ display: none;
   }
 
   .container{
-    padding-left: 50px;
+    padding: 0 auto;
   }
 
   .table.table-hover{
@@ -590,8 +598,8 @@ display: none;
   }
 
   .sidebar a i{
-    margin-left: -10px;
-    font-size: 17px;
+    font-size: 23px;
+    margin-right: 16px;
   }
 
   #check:checked ~ label #btn{
@@ -604,24 +612,108 @@ display: none;
     opacity: 1;
     visibility: visible;
   }
-
-   .container{
-
-    padding-left: 100px; 
-    
-    margin: 0% auto;
-  } 
-
+  
   #containerFuncionario{
-padding-left: 110px;
-margin: 0% auto;
-  }
+
+    padding-left: 120px;
+    margin: 0% auto;
+      }
+    
+     
+    
+      #containerDepartamento{
+        padding-left: 120px;
+       margin: 0% auto;
+        }
+
 
  
+#rowSobre{
+ 
+   
+     margin:80px;
+}
 
-  #containerDepartamento{
-padding-left: 110px;
-margin: 0% auto;
+
+  .sidebar{
+    position: fixed;
+    width: 220px;
+    left: -220px;
+    height: 100%;
+    background:#262626;
+    transition: all .5s ease;
+  }
+  .sidebar header{
+    font-size: 28px;
+    color: white;
+    line-height: 70px;
+    text-align: center;
+    background: #1b1b1b;
+    user-select: none;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .sidebar a{
+    display: block;
+    height: 65px;
+    width: 100%;
+    color: white;
+    line-height: 65px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    transition: all 0.3s ease;
+    
+  }
+  
+  
+  .sidebar a.active, .sidebar a:hover{
+    border-left: 6px solid #224fb9;
+    color: #224fb9;
+  }
+  
+  .sidebar a i{
+    font-size: 23px;
+    margin-right: 16px;
+  }
+  .sidebar a span{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  #check{
+    display: none;
+  }
+  
+  label #btn,label #cancel{
+    position: absolute;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #262626;
+    margin: 15px 30px;
+    font-size: 29px;
+    background: #262626;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    line-height: 45px;
+    transition: all .5s ease;
+  }
+  label #cancel{
+    opacity: 0;
+    visibility: hidden;
+  }
+  #check:checked ~ .sidebar{
+    left: 0;
+  }
+  #check:checked ~ label #btn{
+    margin-left: 245px;
+    opacity: 0;
+    visibility: hidden;
+  }
+  #check:checked ~ label #cancel{
+    margin-left: 245px;
+    opacity: 1;
+    visibility: visible;
   }
 
  
@@ -661,7 +753,59 @@ margin: 0% auto;
     user-select: none;
     font-family: 'Montserrat', sans-serif;
   }
-
+  .sidebar a{
+    display: block;
+    height: 65px;
+    width: 100%;
+    color: white;
+    line-height: 65px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    transition: all 0.3s ease;
+    
+  }
+  
+  
+  .sidebar a.active, .sidebar a:hover{
+    border-left: 6px solid #224fb9;
+    color: #224fb9;
+  }
+  
+  .sidebar a i{
+    font-size: 23px;
+    margin-right: 16px;
+  }
+  .sidebar a span{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  #check{
+    display: none;
+  }
+  
+  label #btn,label #cancel{
+    position: absolute;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #262626;
+    margin: 15px 30px;
+    font-size: 29px;
+    background: #262626;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    line-height: 45px;
+    transition: all .5s ease;
+  }
+  label #cancel{
+    opacity: 0;
+    visibility: hidden;
+  }
+  #check:checked ~ .sidebar{
+    left: 0;
+  }
   #check:checked ~ label #btn{
     margin-left: 245px;
     opacity: 0;
@@ -672,22 +816,36 @@ margin: 0% auto;
     opacity: 1;
     visibility: visible;
   }
+
+  
   
   .container{
 
 
     
-    margin-left: 200px auto;
+    margin-left: 200px;
+    padding-bottom: 500px;
   }
 
-  .sidebar a i{
-    margin-left: -10px;
-    font-size: 23px;
-  }
+
+  #rowSobre{
+ 
+   
+    margin:45px;
+    padding: 20px;
+}
+
+.row{
+  margin:20px;
+  padding: 0px;
+}
+
+
+
+}
 
 
 
 
   
 
-}
