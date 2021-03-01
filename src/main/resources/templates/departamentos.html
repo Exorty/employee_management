@@ -70,7 +70,7 @@
 
         <a href="/sobre">
             <i class="far fa-question-circle"></i>
-            <span style="margin-top: 50px;">Sobre</span>
+            <span>Sobre</span>
         </a>
 
        
@@ -92,12 +92,12 @@
                         <div class="modal-body">
                             <form method="post" th:action="@{/lista/departamentos}" th:object="${d}">
                                 <div class="mb-3">
-                                    <div class="mb-3">
+                                  
 
                                         <label class="form-label">Nome</label>
                                         <input type="text" class="form-control" id="nome" th:field="*{nome}">
                                         
-                                    </div>
+                                
 
                                 </div>
                         </div>
@@ -167,7 +167,7 @@
                                             contidos nele também serão excluídos</h5>
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
                                       <a class="btn btn-success"
                                       th:href="@{'/departamento/delete/' + ${departamento.id}}">Excluir</a>
                                     </div>
@@ -234,7 +234,7 @@
                                                 contidos nele também serão excluídos</h5>
                                         </div>
                                         <div class="modal-footer">
-                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
                                           <a class="btn btn-success"
                                           th:href="@{'/departamento/delete/' + ${departamento.id}}">Excluir</a>
                                         </div>

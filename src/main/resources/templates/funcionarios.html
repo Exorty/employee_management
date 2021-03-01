@@ -70,7 +70,7 @@
 
     <a href="/sobre">
       <i class="far fa-question-circle"></i>
-      <span style="margin-top: 50px;">Sobre</span>
+      <span>Sobre</span>
     </a>
 
 
@@ -93,7 +93,7 @@
             </div>
             <div class="modal-body">
               <form method="post" th:action="@{/lista/funcionarios}" th:object="${f}" >
-                <div class="mb-3">
+              
                   <div class="mb-3">
 
                     <label class="form-label">Nome</label>
@@ -101,20 +101,25 @@
                     <div class="alert alert-danger mt-1" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
                   </div>
 
+
+
+
+                  <div class="mb-3">
+                    <label class="form-label">Sobrenome</label>
+                    <input type="text" class="form-control" id="sobrenome" th:field="*{sobrenome}">
+                    <div class="alert alert-danger mt-1" th:if="${#fields.hasErrors('sobrenome')}" th:errors="*{sobrenome}"></div>
+                  </div>
+
+                  <div class="mb-3">
                   <label class="form-label">Email</label>
                   <input type="email" class="form-control" id="email" th:field="*{email}">
                   <div class="alert alert-danger mt-1" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
-                  
-             
                 </div>
+             
+             
 
                
 
-                <div class="mb-3">
-                  <label class="form-label">Sobrenome</label>
-                  <input type="text" class="form-control" id="sobrenome" th:field="*{sobrenome}">
-                  <div class="alert alert-danger mt-1" th:if="${#fields.hasErrors('sobrenome')}" th:errors="*{sobrenome}"></div>
-                </div>
 
                 <div class="mb-3">
                   <label class="form-label">Telefone</label>
@@ -195,14 +200,13 @@
                                       <h5>Tem certeza que deseja excluir o funcionário?</h5>
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                                       <a class="btn btn-success"
                                       th:href="@{'/funcionario/delete/' + ${funcionario.id}}">Excluir</a>
                                     </div>
                                   </div>
                                 </div>
                               </div>
-
           </tr>
         </tbody>
      
@@ -265,7 +269,7 @@
                                         <h5>Tem certeza que deseja excluir o funcionário?</h5>
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                                       <a class="btn btn-success"
                                       th:href="@{'/funcionario/delete/' + ${funcionario.id}}">Excluir</a>
                                     </div>
