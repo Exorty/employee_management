@@ -63,7 +63,7 @@ public class AppController {
 
 
     @GetMapping("/lista/funcionarios/{page}")
-    public String getFuncionarios(@PathVariable("page") Integer page, Funcionario f, Model model, String keyword) {
+    public String getFuncionarios(@PathVariable("page") Integer page, Funcionario f, Model model) {
      
         List<Departamento> departamentos = departamentoService.findAll();
        Pageable pageable = PageRequest.of(page, 5);
