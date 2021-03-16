@@ -25,7 +25,7 @@ public class AppUser {
     @Column(name = "username", unique = true ,nullable = false, length = 20)
     private String username;
 
-    @NotBlank(message = "Senha não pode ser vazia")
+    @NotBlank(message ="Senha não pode ser vazia")
     @Column(nullable = false, length = 64)
     private String password;
 
