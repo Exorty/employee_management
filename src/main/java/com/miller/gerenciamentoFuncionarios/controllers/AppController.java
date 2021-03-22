@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -39,15 +40,17 @@ public class AppController {
     @Autowired
     private FuncionarioService funcionarioService;
 
+    
+
     @GetMapping("/painel")
     public String index() {
         return "index";
 
-    } 
+    }
 
     @GetMapping("/login")
     public String login() {
-        
+
         return "login";
     }
 
@@ -61,17 +64,20 @@ public class AppController {
         return "sobre";
     }
 
-
     @GetMapping("/lista/funcionarios/{page}")
-    public String getFuncionarios(@PathVariable("page") Integer page, Funcionario f, Model model) {
-     
+    public String getFuncionarios(@PathVariable("page") Integer page, Funcionario f, Model model,
+            @Param("keyword") String keyword) {
+
+                
+
         List<Departamento> departamentos = departamentoService.findAll();
-       Pageable pageable = PageRequest.of(page, 5);
-       Page<Funcionario> funcionariosPage = funcionarioRepository.findAll(pageable);
-         model.addAttribute("funcionariosPage", funcionariosPage);
-         model.addAttribute("currentPage", page);
+        Pageable pageable = PageRequest.of(page, 5);
+        Page<Funcionario> funcionariosPage = funcionarioService.listAll(pageable, keyword);
+        List<Funcionario> listFuncionarios = funcionariosPage.getContent();
+        model.addAttribute("listFuncionarios", listFuncionarios);
+        model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", funcionariosPage.getTotalPages());
-  
+        model.addAttribute("keyword", keyword);
         model.addAttribute("f", f);
         model.addAttribute("departamentos", departamentos);
         return "funcionarios";
@@ -82,8 +88,9 @@ public class AppController {
     public String saveFuncionario(@Valid Funcionario funcionario, BindingResult result, RedirectAttributes attributes) {
 
         if (result.hasErrors()) {
-         
+
             attributes.addFlashAttribute("funcionario", funcionario);
+            attributes.addFlashAttribute("mensagem", "Verifique se os campos obrigatórios foram preenchidos!");
             return "redirect:/lista/funcionarios/0";
 
         }
@@ -105,31 +112,31 @@ public class AppController {
     }
 
     @PostMapping("/lista/editarFuncionario")
-    public String saveEditFuncionario(@Valid Funcionario funcionario,BindingResult result, Model model, 
+    public String saveEditFuncionario(@Valid Funcionario funcionario, BindingResult result, Model model,
             RedirectAttributes attributes) {
 
         if (result.hasErrors()) {
-          
-      
+
             return "redirect:/lista/editarFuncionario/" + funcionario.getId();
 
         }
 
-       
         funcionarioRepository.save(funcionario);
 
-     return "redirect:/lista/funcionarios/0";
+        return "redirect:/lista/funcionarios/0";
     }
 
     @GetMapping("/lista/departamentos/{page}")
-    public String getDepartamentos(@PathVariable("page") Integer page, Departamento d, Model model) {
+    public String getDepartamentos(@PathVariable("page") Integer page, Departamento d, Model model,  @Param("keyword") String keyword) {
 
         Pageable pageable = PageRequest.of(page, 5);
-        Page<Departamento> departamentoPage = departamentoRepository.findAll(pageable);
-          model.addAttribute("departamentosPage", departamentoPage);
-          model.addAttribute("currentPage", page);
-         model.addAttribute("totalPages", departamentoPage.getTotalPages());
-         
+        Page<Departamento> departamentoPage = departamentoService.listAll(pageable, keyword);
+        List<Departamento> listDepartamentos = departamentoPage.getContent();
+
+        model.addAttribute("listDepartamentos", listDepartamentos);
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", departamentoPage.getTotalPages());
 
         List<Departamento> departamentos = departamentoService.findAll();
         model.addAttribute("departamentos", departamentos);
@@ -140,16 +147,18 @@ public class AppController {
     }
 
     @PostMapping("/lista/departamentos")
-    public String saveDepartamento(Departamento departamento, BindingResult result, RedirectAttributes attributes) {
+    public String saveDepartamento(@Valid Departamento departamento, BindingResult result, RedirectAttributes attributes) {
 
         if (result.hasErrors()) {
-            
+
             attributes.addFlashAttribute("departamento", departamento);
-            return "redirect:/lista/departamentos/0";
+            attributes.addFlashAttribute("mensagem", "Verifique se os campos obrigatórios foram preenchidos!");
+
+            return "redirect:/lista/departamentos/0";    
 
         }
 
-        departamentoService.save(departamento);
+        departamentoRepository.save(departamento);
 
         return "redirect:/lista/departamentos/0";
     }
@@ -157,9 +166,8 @@ public class AppController {
     @GetMapping("/lista/editarDepartamento/{id}")
     public String editDepartamento(@PathVariable("id") Long id, Model model) {
 
-       
         List<Departamento> departamentos = departamentoService.findAll();
-       Departamento departamento = departamentoService.findById(id);
+        Departamento departamento = departamentoService.findById(id);
         model.addAttribute("departamentos", departamentos);
         model.addAttribute("departamento", departamento);
 
@@ -171,7 +179,7 @@ public class AppController {
             RedirectAttributes attributes) {
 
         if (result.hasErrors()) {
-            
+
             attributes.addFlashAttribute("departamento", departamento);
             return "redirect:/lista/editarDepartamento/" + departamento.getId();
 
@@ -197,9 +205,5 @@ public class AppController {
 
         return "redirect:/lista/departamentos/0";
     }
-
-    
-
-   
 
 }

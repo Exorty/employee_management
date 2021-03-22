@@ -7,6 +7,8 @@ import com.miller.gerenciamentoFuncionarios.repositories.FuncionarioRepository;
 import com.miller.gerenciamentoFuncionarios.services.FuncionarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,9 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 
         return funcionarioRepository.findAll(Sort.by("id"));
     }
+
+
+
 
     @Override
     public Funcionario save(Funcionario funcionario) {
@@ -39,6 +44,19 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 
         return funcionarioRepository.findById(id).get();
     }
+
+    @Override
+    public Page<Funcionario> listAll(Pageable pageable, String keyword) {
+         
+        if (keyword != null) {
+            return funcionarioRepository.findAll(pageable, keyword);
+        }
+        
+        return funcionarioRepository.findAll(pageable);
+    }
+
+  
+
 
  
 }

@@ -6,7 +6,11 @@
 }
 
 .login_body{
-    background-color: rgb(197, 197, 197);
+    background-color: rgb(226, 226, 226);
+}
+
+.registration_body{
+    background-color: rgb(226, 226, 226);
 }
 
 .row{

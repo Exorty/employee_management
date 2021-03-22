@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -35,6 +37,7 @@ public class Funcionario{
     @OnDelete(action = OnDeleteAction.CASCADE)
     @ManyToOne()  
     @JoinColumn(name= "departamento_id")
+    @NotNull
     private Departamento departamento;
 
     public Long getId() {

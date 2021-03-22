@@ -260,6 +260,49 @@ margin: 7px;
   
 }
 
+.btn1{
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 35%;
+  background-color: #262626;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
+  
+  
+  
+}
+
+.btn1:hover{
+  background: white;
+  border: 1px solid;
+  color: #224fb9;
+}
+
+.btn1-cancel{
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 35%;
+  background-color: #262626;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn1-cancel:hover{
+  background: white;
+  border: 1px solid;
+  color: rgb(255, 0, 0);
+}
+
+
+
+
+
+
+
 .table.table-hover{
     border-radius:1px;
    box-shadow:  2px 0px 1px -1px #262626,  -2px 0px 1px -1px #262626;
@@ -281,6 +324,7 @@ margin: 7px;
   border-radius: 0.5px 0.5px 0 0;
   box-shadow: 0px 1px 1px #262626,  -1px 1px 0px 0px #262626;
   margin-top: 50px;
+  position: relative;
   
     }
 
@@ -295,8 +339,33 @@ margin: 7px;
       float: right;
      }
 
+     .grupoBotoes{
+      display: flex;
+      margin: 5px;
+     }
 
-     .row{
+    
+
+     #keyword{
+      width: 384px !important;
+     }
+
+     .modal-header{
+     background-color: #1b1b1b;
+     color: white;
+     border-top-right-radius: 20px;
+     border-top-left-radius: 20px;
+     
+     }
+
+     .modal-content
+{
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+    
+}
+
+     .row{  
       padding-left:50px;
       font-size: 22px;
     
@@ -402,6 +471,7 @@ display: none;
   
    
 
+      
 
 
     
@@ -492,13 +562,15 @@ display: none;
    
   }
 
-  .btn1{
+.btn1{
     border: none;
     outline: none;
     height: 50px;
     width: 100%;
     border-radius: 4px;
     font-weight: bold;
+    text-align: center;
+    padding-top: 13px;
 }
 
 .btn1:hover{
@@ -507,8 +579,30 @@ display: none;
     color: black;
 }
 
+.btn1-cancel{
+  border: none;
+  outline: none;
+  height: 50px;
+  width: 100%;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn1-cancel:hover{
+ 
+  border: 1px solid;
+  
+}
 
 
+
+
+
+
+
+#keyword{
+  width: 145px !important;
+}
 
 
 
@@ -571,11 +665,14 @@ display: none;
     margin: 0% auto;
   } 
 
- 
+
+  .table-responsive-sm{
+    display: none;
+    }
   
  }
 
-/* // Large devices (desktops, less than 1200px) */
+
 @media (min-width: 1199.98px) { 
 
   .table-responsive-sm{
