@@ -4,4 +4,4 @@
 ![painel](https://user-images.githubusercontent.com/43776020/109894751-ce09e800-7c6c-11eb-910e-e82cc9b72b45.png)
 
 
-![print2](https://user-images.githubusercontent.com/43776020/111248831-70b95380-85e9-11eb-86ac-cd5340d5c531.png)
+![image](https://user-images.githubusercontent.com/43776020/111925667-92528900-8a88-11eb-9408-980cf95a1e35.png)
