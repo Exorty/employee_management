@@ -19,5 +19,6 @@ public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> 
     @Query("SELECT f FROM Funcionario f WHERE CONCAT(f.id, ' ', f.nome, ' ', f.sobrenome, ' ', f.email, ' ', f.telefone, ' ', f.departamento) LIKE %?1%")
     Page<Funcionario> findAll(Pageable pageable, String keyword);
 
- 
+    boolean existsByDepartamentoId(Long departamentoId);
+
 }

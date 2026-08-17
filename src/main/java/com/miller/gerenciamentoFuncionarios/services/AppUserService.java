@@ -33,18 +33,11 @@ public class AppUserService implements UserDetailsService {
     }
 
     public void register(AppUser appUser) {
-        try {
-            String encodedPassword = passwordEncoder.encode(appUser.getPassword());
-            appUser.setPassword(encodedPassword);
-          
-            appUser.setEnabled(false);
-    
-            userRepository.save(appUser);
-    
-            
-        } catch (Exception e) {
-         
-        }
+        String encodedPassword = passwordEncoder.encode(appUser.getPassword());
+        appUser.setPassword(encodedPassword);
+        appUser.setEnabled(true);
+
+        userRepository.save(appUser);
     }
 
     @Override

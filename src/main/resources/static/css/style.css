@@ -1,18 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap');
+
+:root{
+  --dark: #1b1b1b;
+  --dark-2: #262626;
+  --accent: #224fb9;
+  --accent-2: #0f2a68;
+  --accent-soft: rgba(34, 79, 185, 0.1);
+  --bg-page: #f2f4f9;
+  --surface: #ffffff;
+  --border: #e6e9f2;
+  --text: #20232c;
+  --text-muted: #6b7280;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, .06), 0 1px 1px rgba(15, 23, 42, .04);
+  --shadow-md: 0 12px 28px -10px rgba(15, 23, 42, .22);
+  --transition: all .25s ease;
+}
+
 *{
   margin: 0;
   padding: 0;
   text-decoration: none !important;
-  
+
 }
 
 body{
-  font-family:'Open Sans';
- 
+  font-family:'Open Sans', sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text);
+}
+
+h1, h2, h3, h4, h5, h6, .card-title{
+  font-family: 'Poppins', sans-serif;
+}
+
+a, button, .btn1, .btn1-cancel, .page-link, .sidebar a, .card{
+  transition: var(--transition);
+}
+
+:focus-visible{
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.navbar{
+  box-shadow: var(--shadow-sm);
 }
 
 .navbar a{
   color: white;
+}
+
+.form-control, .form-select{
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+.form-control:focus, .form-select:focus{
+  border-color: var(--accent);
+  box-shadow: 0 0 0 .2rem var(--accent-soft);
+}
+
+.input-group-text{
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  background-color: #f6f7fb;
 }
 
 
@@ -23,7 +76,11 @@ body{
   left: -240px;
   height: 100%;
   background:#262626;
+  box-shadow: var(--shadow-md);
+  border-top-right-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
   transition: all .5s ease;
+  z-index: 20;
 }
 .sidebar header{
   font-size: 28px;
@@ -32,25 +89,29 @@ body{
   text-align: center;
   background: #1b1b1b;
   user-select: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: .5px;
+  border-top-right-radius: var(--radius-lg);
 }
 .sidebar a{
   display: block;
   height: 65px;
   width: 100%;
-  color: white;
+  color: rgba(255,255,255,.85);
   line-height: 65px;
   padding-left: 30px;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
   transition: all 0.3s ease;
-  
+
 }
 
 
 .sidebar a.active, .sidebar a:hover{
   border-left: 6px solid #224fb9;
-  color: #224fb9;
+  color: #6f97ea;
+  background: rgba(34, 79, 185, 0.18);
 }
 .sidebar a i{
   font-size: 23px;
@@ -68,7 +129,7 @@ label #btn,label #cancel{
   position: absolute;
   cursor: pointer;
   color: white;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 1px solid #262626;
   margin: 15px 30px;
   font-size: 29px;
@@ -77,6 +138,7 @@ label #btn,label #cancel{
   width: 45px;
   text-align: center;
   line-height: 45px;
+  box-shadow: var(--shadow-sm);
   transition: all .5s ease;
 }
 label #cancel{
@@ -109,18 +171,34 @@ label #cancel{
 
 #buttonDelete{
   width: 100px;
- 
+
 }
 
 #actionButtons{
   text-align: center;
 }
 
+#actionButtons i, #buttonEdit i, #buttonDelete i{
+  transition: var(--transition);
+}
+#actionButtons a:hover i, #buttonEdit:hover i, #buttonDelete:hover i{
+  transform: translateY(-2px);
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,.15));
+}
+
+
+.pagination{
+  padding-top:0px;
+
+}
 
 .pagination > li > a
 {
     background-color: white;
     color: #262626;
+    border-radius: var(--radius-sm) !important;
+    margin: 0 3px;
+    border-color: var(--border);
 }
 
 .pagination > li > a:focus,
@@ -182,27 +260,30 @@ label #cancel{
 .container{
 
 
-  
+
   margin: 0% auto;
 }
 
 .container h4{
     text-align: center;
+    font-weight: 600;
 }
 
 #botaoAdd{
   margin-left: 92%;
   margin-bottom: 5px;
   color:#09d435;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.2));
 }
 #botaoAdd:hover{
 
   color:#fff;
+  transform: scale(1.12);
 }
 
 .pagination{
   padding-top:0px;
- 
+
 }
 
 
@@ -214,31 +295,45 @@ label #cancel{
 .actionButtonsEdit{
 
   text-align: center;
-  
+
+}
+
+.actionButtonsEdit .btn{
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+.actionButtonsEdit .btn:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 #botaoCancelar{
- 
+
   margin-right: 20px;
   width: 100px;
   height: 45px;
   padding-top: 10px;
- 
+
 }
 
 #botaoSalvar{
   text-align: center;
   width: 100px;
   height: 45px;
- 
+
 }
 
 .card{
 
-  
+
 color: black;
 text-align: center;
 margin: 7px;
+border: none;
+border-radius: var(--radius-lg);
+overflow: hidden;
+box-shadow: var(--shadow-sm);
 }
 
 
@@ -247,17 +342,22 @@ margin: 7px;
 .card-img-top{
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 
 
 
 .card:hover{
-  transform: scale(1.1);
+  transform: translateY(-6px);
   color: #224fb9;
-  box-shadow: -1px 5px 20px -12px #262626;
+  box-shadow: var(--shadow-md);
 
-  
+
+}
+
+.card-body{
+  padding: 1.25rem 1rem;
 }
 
 .btn1{
@@ -267,17 +367,20 @@ margin: 7px;
   width: 35%;
   background-color: #262626;
   color: white;
-  border-radius: 4px;
+  border-radius: 10px;
   font-weight: bold;
-  
-  
-  
+  box-shadow: var(--shadow-sm);
+
+
+
 }
 
 .btn1:hover{
   background: white;
   border: 1px solid;
   color: #224fb9;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .btn1-cancel{
@@ -287,16 +390,23 @@ margin: 7px;
   width: 35%;
   background-color: #262626;
   color: white;
-  border-radius: 4px;
+  border-radius: 10px;
   font-weight: bold;
+  box-shadow: var(--shadow-sm);
 }
 
 .btn1-cancel:hover{
   background: white;
   border: 1px solid;
   color: rgb(255, 0, 0);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
+.modal-footer form{
+  margin: 0;
+  display: inline-flex;
+}
 
 
 
@@ -304,28 +414,28 @@ margin: 7px;
 
 
 .table.table-hover{
-    border-radius:1px;
-   box-shadow:  2px 0px 1px -1px #262626,  -2px 0px 1px -1px #262626;
-   
+    border-radius: var(--radius-lg);
+   box-shadow: var(--shadow-md);
+   overflow: hidden;
 
 
 
- 
+
 
 
  }
 
- .table-title {        
+ .table-title {
   padding-bottom: 15px;
-     background: linear-gradient(40deg,#0f2a68,#262626) !important;
+     background: linear-gradient(50deg,#0f2a68,#262626) !important;
   color: #fff;
-  padding: 16px 30px;
+  padding: 18px 30px;
   margin: -20px 0px 0px;
-  border-radius: 0.5px 0.5px 0 0;
-  box-shadow: 0px 1px 1px #262626,  -1px 1px 0px 0px #262626;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: var(--shadow-sm);
   margin-top: 50px;
   position: relative;
-  
+
     }
 
 
@@ -333,6 +443,7 @@ margin: 7px;
     .table-title h2 {
       margin: 5px 0 0;
       font-size: 24px;
+      font-weight: 600;
      }
 
      .table-title .btn-group {
@@ -344,49 +455,52 @@ margin: 7px;
       margin: 5px;
      }
 
-    
+
 
      #keyword{
       width: 384px !important;
+      border-radius: var(--radius-sm) !important;
      }
 
      .modal-header{
      background-color: #1b1b1b;
      color: white;
-     border-top-right-radius: 20px;
-     border-top-left-radius: 20px;
-     
+     border-top-right-radius: var(--radius-lg);
+     border-top-left-radius: var(--radius-lg);
+
      }
 
      .modal-content
 {
-  border-top-right-radius: 25px;
-  border-top-left-radius: 25px;
-    
+  border: none;
+  border-top-right-radius: var(--radius-lg);
+  border-top-left-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+
 }
 
-     .row{  
+     .row{
       padding-left:50px;
       font-size: 22px;
-    
-    }
-  
-  
-   .col-lg-5{
-  
-    border-top-left-radius: 30px; 
-    border-bottom-left-radius: 30px;
-   
 
-  
-  
+    }
+
+
+   .col-lg-5{
+
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+
+
+
+
   }
 
   .col-lg-4{
-    border-top-right-radius: 30px; 
+    border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
 
-      
+
   }
 
   #linkedin {
@@ -396,59 +510,60 @@ padding-left: 30%;
 
   #linkedin:hover{
     color: #0f2a68;
+    transform: scale(1.08);
   }
 
-  
 
-@media (max-width: 575.98px) { 
+
+@media (max-width: 575.98px) {
   .card{
 
-    
+
     color: #224fb9;
     box-shadow: -1px 5px 20px -12px #262626;
-    
+
   }
 
   .card:hover{
 
-    transform: scale(1.0);
+    transform: translateY(0);
     color:  #224fb9;
     box-shadow: -1px 5px 20px -12px #262626;
-    
+
   }
 
   .container{
     margin: 0 auto;
-   
+
   }
   #containerPainel{
     margin-left: 50px;
   }
 
 .row{
- 
- 
-   
+
+
+
     margin:20px;
     padding-left: 60px;
 
 
- 
+
   font-size: 20px;
 }
 
 .col-lg-5{
-  border-top-right-radius: 30px; 
-  border-bottom-left-radius: 0px; 
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 0px;
 
-  
+
 
 
 }
 
 .col-lg-4{
-  border-top-right-radius: 0px; 
-  border-bottom-left-radius: 30px; 
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 30px;
 }
 
 #pagination{
@@ -461,38 +576,38 @@ display: none;
   padding-left: 74px;
   margin: 0% auto;
     }
-  
-   
-  
+
+
+
     #containerDepartamento{
       padding-left: 74px;
      margin: 0% auto;
       }
-  
-   
-
-      
 
 
-    
+
+
+
+
+
  }
 
 
-@media (max-width: 767.98px) { 
+@media (max-width: 767.98px) {
   .card{
 
-    
+
     color:  #224fb9;
     box-shadow: -1px 5px 20px -12px #262626;
-    
+
   }
 
   .card:hover{
 
-    transform: scale(1.0);
+    transform: translateY(0);
     color:  #224fb9;
     box-shadow: -1px 5px 20px -12px #262626;
-    
+
   }
 
   .container{
@@ -505,9 +620,10 @@ display: none;
 
   .table-responsive-sm{
     padding-top: 0px;
-    border-radius:1px;
-    box-shadow:  1px 0px 1px -1px #262626,  -2px 0px 1px -1px #262626;
- 
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+
   }
 
   #botaoAdd{
@@ -522,28 +638,28 @@ display: none;
 
   #actionButtons-responsive{
     text-align: center;
-  
+
 
   }
 
 
 
-  
+
 
   #botaoCancelar{
- 
+
     margin-right: 20px;
     width: 100px;
     height: 45px;
     padding-top: 5px;
-   
+
   }
-  
+
   #botaoSalvar{
     text-align: center;
     width: 100px;
     height: 45px;
-   
+
   }
 
   #botaoCancelarDepartamento{
@@ -559,7 +675,7 @@ display: none;
     text-align: center;
     width: 100px;
     height: 45px;
-   
+
   }
 
 .btn1{
@@ -567,14 +683,14 @@ display: none;
     outline: none;
     height: 50px;
     width: 100%;
-    border-radius: 4px;
+    border-radius: 10px;
     font-weight: bold;
     text-align: center;
     padding-top: 13px;
 }
 
 .btn1:hover{
-   
+
     border: 1px solid;
     color: black;
 }
@@ -584,16 +700,15 @@ display: none;
   outline: none;
   height: 50px;
   width: 100%;
-  border-radius: 4px;
+  border-radius: 10px;
   font-weight: bold;
 }
 
 .btn1-cancel:hover{
- 
-  border: 1px solid;
-  
-}
 
+  border: 1px solid;
+
+}
 
 
 
@@ -611,8 +726,8 @@ display: none;
 
 
 
-@media (min-width: 991.98px) { 
- 
+@media (min-width: 991.98px) {
+
 
   .container{
     padding-left: 100px;
@@ -624,9 +739,10 @@ display: none;
     left: -203px;
     height: 100%;
     background:#262626;
+    box-shadow: var(--shadow-md);
     transition: all .5s ease;
   }
-  
+
   .sidebar header{
     font-size: 26px;
     color: white;
@@ -634,13 +750,13 @@ display: none;
     text-align: center;
     background: #1b1b1b;
     user-select: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 
- 
 
-    
- 
+
+
+
 
   .sidebar a i{
     margin-left: -10px;
@@ -660,25 +776,25 @@ display: none;
 
      .container{
 
-    padding-left: 100px; 
-    
+    padding-left: 100px;
+
     margin: 0% auto;
-  } 
+  }
 
 
   .table-responsive-sm{
     display: none;
     }
-  
+
  }
 
 
-@media (min-width: 1199.98px) { 
+@media (min-width: 1199.98px) {
 
   .table-responsive-sm{
   display: none;
   }
-  
+
   #botaoAdd-sm{
     display: none;
   }
@@ -694,7 +810,7 @@ display: none;
     text-align: center;
     width: 100px;
     height: 45px;
-   
+
   }
 
   .sidebar a i{
@@ -712,25 +828,25 @@ display: none;
     opacity: 1;
     visibility: visible;
   }
-  
+
   #containerFuncionario{
 
     padding-left: 120px;
     margin: 0% auto;
       }
-    
-     
-    
+
+
+
       #containerDepartamento{
         padding-left: 120px;
        margin: 0% auto;
         }
 
 
- 
+
 #rowSobre{
- 
-   
+
+
      margin:80px;
 }
 
@@ -741,6 +857,7 @@ display: none;
     left: -220px;
     height: 100%;
     background:#262626;
+    box-shadow: var(--shadow-md);
     transition: all .5s ease;
   }
   .sidebar header{
@@ -750,27 +867,28 @@ display: none;
     text-align: center;
     background: #1b1b1b;
     user-select: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
   .sidebar a{
     display: block;
     height: 65px;
     width: 100%;
-    color: white;
+    color: rgba(255,255,255,.85);
     line-height: 65px;
     padding-left: 30px;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
     transition: all 0.3s ease;
-    
+
   }
-  
-  
+
+
   .sidebar a.active, .sidebar a:hover{
     border-left: 6px solid #224fb9;
-    color: #224fb9;
+    color: #6f97ea;
+    background: rgba(34, 79, 185, 0.18);
   }
-  
+
   .sidebar a i{
     font-size: 23px;
     margin-right: 16px;
@@ -782,12 +900,12 @@ display: none;
   #check{
     display: none;
   }
-  
+
   label #btn,label #cancel{
     position: absolute;
     cursor: pointer;
     color: white;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid #262626;
     margin: 15px 30px;
     font-size: 29px;
@@ -796,6 +914,7 @@ display: none;
     width: 45px;
     text-align: center;
     line-height: 45px;
+    box-shadow: var(--shadow-sm);
     transition: all .5s ease;
   }
   label #cancel{
@@ -816,8 +935,6 @@ display: none;
     visibility: visible;
   }
 
- 
-    
 
 
 
@@ -826,7 +943,7 @@ display: none;
  }
 
 
-@media (min-width: 1399.98px) {  
+@media (min-width: 1399.98px) {
 
   .table-responsive-sm{
     display: none;
@@ -842,6 +959,7 @@ display: none;
     left: -240px;
     height: 100%;
     background:#262626;
+    box-shadow: var(--shadow-md);
     transition: all .5s ease;
   }
   .sidebar header{
@@ -851,27 +969,28 @@ display: none;
     text-align: center;
     background: #1b1b1b;
     user-select: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
   .sidebar a{
     display: block;
     height: 65px;
     width: 100%;
-    color: white;
+    color: rgba(255,255,255,.85);
     line-height: 65px;
     padding-left: 30px;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
     transition: all 0.3s ease;
-    
+
   }
-  
-  
+
+
   .sidebar a.active, .sidebar a:hover{
     border-left: 6px solid #224fb9;
-    color: #224fb9;
+    color: #6f97ea;
+    background: rgba(34, 79, 185, 0.18);
   }
-  
+
   .sidebar a i{
     font-size: 23px;
     margin-right: 16px;
@@ -883,12 +1002,12 @@ display: none;
   #check{
     display: none;
   }
-  
+
   label #btn,label #cancel{
     position: absolute;
     cursor: pointer;
     color: white;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid #262626;
     margin: 15px 30px;
     font-size: 29px;
@@ -897,6 +1016,7 @@ display: none;
     width: 45px;
     text-align: center;
     line-height: 45px;
+    box-shadow: var(--shadow-sm);
     transition: all .5s ease;
   }
   label #cancel{
@@ -917,20 +1037,20 @@ display: none;
     visibility: visible;
   }
 
-  
-  
+
+
   .container{
 
 
-    
+
     margin-left: 200px;
     padding-bottom: 500px;
   }
 
 
   #rowSobre{
- 
-   
+
+
     margin:45px;
     padding: 20px;
 }
@@ -944,8 +1064,4 @@ display: none;
 
 }
 
-
-
-
-  
 

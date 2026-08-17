@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.miller.gerenciamentoFuncionarios.models.Departamento;
 import com.miller.gerenciamentoFuncionarios.repositories.DepartamentoRepository;
+import com.miller.gerenciamentoFuncionarios.repositories.FuncionarioRepository;
 import com.miller.gerenciamentoFuncionarios.services.DepartamentoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class DepartamentoServiceImpl implements DepartamentoService {
 
     @Autowired
     private DepartamentoRepository departamentoRepository;
+
+    @Autowired
+    private FuncionarioRepository funcionarioRepository;
 
     @Override
     public List<Departamento> findAll() {
@@ -32,6 +36,9 @@ public class DepartamentoServiceImpl implements DepartamentoService {
 
     @Override
     public void deleteById(long id) {
+        if (funcionarioRepository.existsByDepartamentoId(id)) {
+            throw new IllegalStateException("Não é possível excluir: existem funcionários vinculados a este departamento.");
+        }
         departamentoRepository.deleteById(id);
 
     }

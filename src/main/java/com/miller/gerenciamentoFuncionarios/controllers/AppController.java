@@ -190,7 +190,7 @@ public class AppController {
         return "redirect:/lista/departamentos/0";
     }
 
-    @GetMapping("/funcionario/delete/{id}")
+    @PostMapping("/funcionario/delete/{id}")
     public String deleteFuncionario(@PathVariable("id") Long id) {
 
         funcionarioService.deleteById(id);
@@ -198,10 +198,14 @@ public class AppController {
         return "redirect:/lista/funcionarios/0";
     }
 
-    @GetMapping("/departamento/delete/{id}")
-    public String deleteDepartamento(@PathVariable("id") Long id) {
+    @PostMapping("/departamento/delete/{id}")
+    public String deleteDepartamento(@PathVariable("id") Long id, RedirectAttributes attributes) {
 
-        departamentoService.deleteById(id);
+        try {
+            departamentoService.deleteById(id);
+        } catch (IllegalStateException e) {
+            attributes.addFlashAttribute("mensagem", e.getMessage());
+        }
 
         return "redirect:/lista/departamentos/0";
     }

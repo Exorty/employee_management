@@ -2,6 +2,7 @@ package com.miller.gerenciamentoFuncionarios.appuser;
 
 
 import java.util.Collection;
+import java.util.Collections;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -24,8 +25,8 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-       
-        return null;
+
+        return Collections.emptyList();
     }
 
     @Override
@@ -60,8 +61,8 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-  
-        return true;
+
+        return user.isEnabled();
     }
     
 }

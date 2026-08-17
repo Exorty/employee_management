@@ -8,6 +8,7 @@ import com.miller.gerenciamentoFuncionarios.appuser.AppUser;
 import com.miller.gerenciamentoFuncionarios.services.AppUserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -36,8 +37,14 @@ public class RegistrationController {
             return "/registrationForm";
         }
 
-        userService.register(appUser);
-        return "/registration_success";
+        try {
+            userService.register(appUser);
+        } catch (DataIntegrityViolationException e) {
+            result.rejectValue("username", "duplicate", "Esse usuário já existe");
+            return "/registrationForm";
+        }
+
+        return "/registrationSuccess";
 
     }
 

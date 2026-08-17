@@ -3,7 +3,6 @@ package com.miller.gerenciamentoFuncionarios.models;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +22,7 @@ public class Departamento {
     @NotBlank
     private String nome;
 
-    @OneToMany(mappedBy = "departamento", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "departamento")
     private List<Funcionario> Funcionario;
 
     public Long getId() {
